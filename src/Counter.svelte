@@ -1,12 +1,12 @@
 <script>
-    let count = 0;
-    $: squared = count ** 2;
-    $: squaredMinusOne = squared - 1;
-    function handleClick() {
-        count += 1
-    }
+  import { store } from "../store";
+  import Incrementer from "./counterHelpers/Incrementer.svelte";
+  import Decrementer from "./counterHelpers/Decrementer.svelte";
+  import Setter from "./counterHelpers/Setter.svelte";
 </script>
 
-<button on:click={handleClick}>Counter is: {count}</button>
-<h1>Square value of counter is: {squared}</h1>
-<h2>Squared minus one is: {squaredMinusOne}</h2>
+<h1>The count is {$store}</h1>
+
+<Incrementer />
+<Decrementer />
+<Setter />
